@@ -110,14 +110,14 @@ nav a:hover {
 }
 
 .card a {
-    color: #0077b6;
+    color: #837b07;
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s;
 }
 
 .card a:hover {
-    color: #005c8c;
+    color: #aca10d;
 }
 
 /* Rodapé */

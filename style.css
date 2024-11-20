@@ -7,7 +7,7 @@
 }
 
 body {
-    background-color: #f0f0f0;
+    background-color: #ffffff;
 }
 
 
@@ -18,9 +18,9 @@ nav a:hover {
 
 /* Seção Hero */
 .hero {
-    background-color: #f5fafa;
-    color: #fff;
-    padding: 2rem 1rem;
+    background-color: #fafafa;
+    color: #fafafa;
+    padding: 1rem 1rem;
     text-align: center;
 }
 
@@ -36,9 +36,41 @@ nav a:hover {
 
 .projust1 {
     position: relative;
-    top: 10px;
-    left: auto;
+    top: -5px;
+    left: auto; 
+    width: 250px;
+    height: 130px;
+    margin-right: 5px;
+    right: 550px;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+}
+.search-container input {
+    position: relative;
+    top: -100px;
+    left: 500px;
     right: auto;
+    padding: 10px;
+    width: 300px;
+    margin-right: 15px;
+}
+.header-buttons {
+    display: flex;
+    gap: 10px;
+}
+.header-buttons button {
+    position: relative;
+    top: -100px;
+    left: 800px;
+    right: auto;
+    padding: 10px 15px;
+    background-color: #85690f;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
 }
 
 nav ul {
@@ -48,7 +80,7 @@ nav ul {
 }
 
 nav a {
-    color: #816e17;
+    color: #85690f;
     text-decoration: none;
     padding: 0.5rem 1rem;
     transition: background-color 0.3s;
@@ -60,7 +92,7 @@ nav a:hover {
 
 .cta {
     position: relative;
-    top: 20px;
+    top: -100px;
     background-color: #5c5454;
     color: #85690f;
     padding: 1rem 2rem;
@@ -72,7 +104,7 @@ nav a:hover {
 }
 
 .cta:hover {
-    background-color: #e6e6e6;
+    background-color: #ffffff;
 }
 
 /* Seção de Serviços */
@@ -93,7 +125,7 @@ nav a:hover {
 }
 
 .card {
-    background-color: #fff;
+    background-color: #ffffff;
     padding: 2rem;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -110,20 +142,20 @@ nav a:hover {
 }
 
 .card a {
-    color: #837b07;
+    color: #85690f;
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s;
 }
 
 .card a:hover {
-    color: #aca10d;
+    color: #85690f;
 }
 
 /* Rodapé */
 footer {
     background-color: #333;
-    color: #fff;
+    color: #ffffff;
     padding: 1rem;
     text-align: center;
 }

@@ -9,3 +9,15 @@ document.getElementById('contact-form').addEventListener('submit', function(e) {
     alert('Mensagem enviada com sucesso!');
     this.reset();
 });
+
+const searchInput = document.querySelector('.search-input');
+const searchButton = document.querySelector('.search-button');
+
+searchButton.addEventListener('click', () => {
+    searchInput.focus();
+});
+
+searchInput.addEventListener('input', (e) => {
+    // Aqui você pode adicionar a lógica de pesquisa
+    console.log('Pesquisando:', e.target.value);
+});

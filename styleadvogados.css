@@ -5,12 +5,96 @@ body {
             padding: 0;
             background-color: #f4f4f4;
         }
+
+.projust1 {
+        position: relative;
+        top: -5px;
+        left: auto; 
+        width: 250px;
+        height: 130px;
+        margin-right: 5px;
+        right: 550px;
+    }
+
 .container {
             width: 90%;
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
         }
+
+/* Estilos existentes permanecerão, apenas adicionando os novos */
+.search-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.search-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 300px; /* Largura inicial maior para combinar com seu design */
+}
+
+.search-input {
+    width: 100%;
+    padding: 10px 40px 10px 15px;
+    border: 2px solid #ddd;
+    border-radius: 25px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.search-input:focus {
+    border-color: #85690f;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+.search-button {
+    position: absolute;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.search-icon {
+    width: 20px;
+    height: 20px;
+    color: #666;
+    transition: color 0.3s ease;
+}
+
+.search-button:hover .search-icon {
+    color: #85690f;
+}
+
+/* Estilos para os botões do header */
+.header-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.header-buttons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    background-color: #85690f;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.header-buttons button:hover {
+    background-color: #85690f;
+}
+
+
 header {
             background-color: #ffffff;
             color: #85690f;

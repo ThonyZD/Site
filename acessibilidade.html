@@ -1,0 +1,167 @@
+<style>
+    /* [Estilos anteriores mantidos...] */
+
+    /* Estilo para indicar elementos interativos */
+    [data-speech] {
+        cursor: pointer;
+    }
+
+    [data-speech]:hover {
+        outline: 2px solid var(--primary-color);
+    }
+
+    /* Indicador visual de foco para acessibilidade */
+    .audio-focus {
+        position: relative;
+    }
+
+    .audio-focus::after {
+        content: '🔊';
+        position: absolute;
+        right: -20px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 14px;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+
+    .audio-focus:hover::after {
+        opacity: 1;
+    }
+</style>
+</head>
+<body>
+<!-- [Estrutura HTML anterior mantida...] -->
+
+<script>
+    // Configuração do sintetizador de voz
+    const speechSynthesis = window.speechSynthesis;
+    let voices = [];
+
+    // Carregar vozes disponíveis
+    function loadVoices() {
+        voices = speechSynthesis.getVoices();
+        // Procurar por uma voz em português
+        return voices.find(voice => voice.lang.includes('pt')) || voices[0];
+    }
+
+    // Garantir que as vozes sejam carregadas
+    speechSynthesis.onvoiceschanged = loadVoices;
+
+    // Função para falar o texto
+    function speak(text, rate = 1) {
+        // Cancelar qualquer fala em andamento
+        speechSynthesis.cancel();
+
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.voice = loadVoices();
+        utterance.rate = rate;
+        utterance.lang = 'pt-BR';
+        speechSynthesis.speak(utterance);
+    }
+
+    // Função para adicionar narração a um elemento
+    function addSpeechToElement(element, customText) {
+        element.addEventListener('mouseover', () => {
+            const textToSpeak = customText || element.textContent;
+            speak(textToSpeak);
+            element.classList.add('audio-focus');
+        });
+
+        element.addEventListener('mouseout', () => {
+            speechSynthesis.cancel();
+            element.classList.remove('audio-focus');
+        });
+
+        // Suporte a navegação por teclado
+        element.addEventListener('focus', () => {
+            const textToSpeak = customText || element.textContent;
+            speak(textToSpeak);
+            element.classList.add('audio-focus');
+        });
+
+        element.addEventListener('blur', () => {
+            speechSynthesis.cancel();
+            element.classList.remove('audio-focus');
+        });
+    }
+
+    // Inicialização da acessibilidade por áudio
+    document.addEventListener('DOMContentLoaded', function() {
+        // Adicionar narração ao logo
+        const logo = document.querySelector('.logo');
+        addSpeechToElement(logo, 'Logo Aquaflex - Produtos de Limpeza Profissional');
+
+        // Adicionar narração aos links de navegação
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            addSpeechToElement(link, `Link para seção ${link.textContent}`);
+        });
+
+        // Adicionar narração aos botões de acessibilidade
+        const contrastButton = document.querySelector('.contrast-toggle');
+        addSpeechToElement(contrastButton, 'Botão para alternar modo de alto contraste');
+
+        document.querySelectorAll('.font-size-btn').forEach(btn => {
+            const action = btn.textContent === 'A+' ? 'aumentar' : 'diminuir';
+            addSpeechToElement(btn, `Botão para ${action} o tamanho da fonte`);
+        });
+
+        // Adicionar narração aos títulos
+        document.querySelectorAll('h1, h2, h3').forEach(heading => {
+            addSpeechToElement(heading, `Título: ${heading.textContent}`);
+        });
+
+        // Adicionar narração aos cards de produtos
+        document.querySelectorAll('.product-card').forEach(card => {
+            const title = card.querySelector('h3').textContent;
+            const description = card.querySelector('p').textContent;
+            addSpeechToElement(card, `Produto: ${title}. ${description}`);
+        });
+
+        // Adicionar narração aos ícones de características
+        document.querySelectorAll('.feature-icon').forEach(icon => {
+            const title = icon.nextElementSibling.textContent;
+            const description = icon.nextElementSibling.nextElementSibling.textContent;
+            addSpeechToElement(icon, `Característica: ${title}. ${description}`);
+        });
+
+        // Adicionar narração aos links de contato
+        document.querySelectorAll('address a').forEach(link => {
+            const method = link.href.includes('mailto') ? 'email' : 'telefone';
+            addSpeechToElement(link, `Link para contato por ${method}: ${link.textContent}`);
+        });
+
+        // Adicionar narração aos botões
+        document.querySelectorAll('.btn').forEach(btn => {
+            addSpeechToElement(btn, `Botão: ${btn.textContent}`);
+        });
+
+        // Feedback sonoro para ações
+        const announceAction = (message) => {
+            speak(message);
+        };
+
+        // Narração para alterações de contraste
+        document.querySelector('.contrast-toggle').addEventListener('click', () => {
+            const isHighContrast = document.body.classList.contains('high-contrast');
+            announceAction(`Modo de alto contraste ${isHighContrast ? 'ativado' : 'desativado'}`);
+        });
+
+        // Narração para alterações de fonte
+        document.querySelectorAll('.font-size-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const action = btn.textContent === 'A+' ? 'aumentado' : 'diminuído';
+                announceAction(`Tamanho da fonte ${action}`);
+            });
+        });
+
+        // Adicionar feedback sonoro para navegação
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', (e) => {
+                const sectionName = anchor.textContent;
+                announceAction(`Navegando para a seção ${sectionName}`);
+            });
+        });
+    });
+</script>

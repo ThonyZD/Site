@@ -90,3 +90,42 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('[data-form="login"]').addEventListener('click', toggleToLogin);
     document.querySelector('[data-form="cadastro"]').addEventListener('click', toggleToCadastro);
 });
+
+function toggleToLogin() {
+    const formToggles = document.querySelectorAll('.form-toggle span');
+    const forms = document.querySelectorAll('.form');
+
+    formToggles.forEach(t => t.classList.remove('active'));
+    forms.forEach(f => f.classList.remove('active'));
+    
+    document.querySelector('.form-toggle span[data-form="login"]').classList.add('active');
+    document.getElementById('login-form').classList.add('active');
+}
+
+function toggleToCadastro() {
+    const formToggles = document.querySelectorAll('.form-toggle span');
+    const forms = document.querySelectorAll('.form');
+
+    formToggles.forEach(t => t.classList.remove('active'));
+    forms.forEach(f => f.classList.remove('active'));
+    
+    document.querySelector('.form-toggle span[data-form="cadastro"]').classList.add('active');
+    document.getElementById('cadastro-form').classList.add('active');
+}
+
+// Basic form validation (you would replace this with more robust validation)
+const loginButton = document.querySelector('#login-form button:first-of-type');
+const cadastroButton = document.querySelector('#cadastro-form button');
+
+loginButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    const email = document.querySelector('#login-form input[type="email"]');
+    const password = document.querySelector('#login-form input[type="password"]');
+
+    if (email.value && password.value) {
+        alert('Login enviado com sucesso!');
+        // Here you would typically send data to a backend
+    } else {
+        alert('Por favor, preencha todos os campos.');
+    }
+});

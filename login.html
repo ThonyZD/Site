@@ -3,44 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login e Cadastro</title>
-    <link rel="stylesheet" href="stylelogin.css">  
+    <title>Projust - Login</title>
+    <link rel="stylesheet" href="stylelogin.css">
     <script src="login e cadastro.js" defer></script>
 </head>
-
 <body>
+    <header>
     <div class="container">
-        <img src="projust.png" 
-        alt="Projust Logo"
-        width="150"
-        height="100"
-        class="logo">
+        <img src="projust.png" alt="Projust Logo" class="logo" width="215" height="160">
         
         <div class="form-toggle">
-            <button class="login-toggle active">Login</button>
-            <button class="register-toggle">Cadastro</button>
+            <span onclick="toggleToLogin()" data-form="login">Login</span>
+            <span data-form="cadastro">Cadastro</span>
         </div>
 
-        <form class="login-form active">
+        <div id="login-form" class="form active">
             <input type="email" placeholder="E-mail" required>
             <input type="password" placeholder="Senha" required>
-            <button type="submit" class="submit-btn">Entrar</button>
+            <button>Entrar</button>
+            <button onclick="toggleToCadastro()">Não tem conta? Cadastre-se</button>
             <div class="form-footer">
                 <a href="#">Esqueceu sua senha?</a>
             </div>
-        </form>
+        </div>
 
-        <form class="register-form">
+        <div id="cadastro-form" class="form">
             <input type="text" placeholder="Nome Completo" required>
             <input type="email" placeholder="E-mail" required>
             <input type="password" placeholder="Senha" required>
             <input type="password" placeholder="Confirmar Senha" required>
-            <button type="submit" class="submit-btn">Cadastrar</button>
+            <button>Cadastrar</button>
             <div class="form-footer">
-                Ao cadastrar, você concorda com nossos 
-                <a href="#">Termos de Uso</a>
+                Ao cadastrar, você concorda com nossos <a href="#">Termos de Uso</a>
             </div>
-        </form>
+        </div>
     </div>
+    </header>
 </body>
 </html>

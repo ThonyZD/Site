@@ -1,131 +1,112 @@
-// login.js (Client-side JavaScript)
 document.addEventListener('DOMContentLoaded', () => {
-    const loginForm = document.getElementById('login-form');
-    const cadastroForm = document.getElementById('cadastro-form');
+    // Select key elements
     const loginToggle = document.querySelector('[data-form="login"]');
     const cadastroToggle = document.querySelector('[data-form="cadastro"]');
+    const loginForm = document.getElementById('login-form');
+    const cadastroForm = document.getElementById('cadastro-form');
 
-    // Toggle between login and registration forms
-    function toggleToLogin() {
-        loginForm.classList.add('active');
-        cadastroForm.classList.remove('active');
-        loginToggle.classList.add('active');
-        cadastroToggle.classList.remove('active');
-    }
+    // Toggle function to switch between login and cadastro forms
+    function toggleForms(targetForm) {
+        // Reset all form toggles
+        [loginToggle, cadastroToggle].forEach(toggle => {
+            toggle.classList.remove('active');
+        });
 
-    function toggleToCadastro() {
-        cadastroForm.classList.add('active');
-        loginForm.classList.remove('active');
-        cadastroToggle.classList.add('active');
-        loginToggle.classList.remove('active');
-    }
+        // Reset all forms
+        [loginForm, cadastroForm].forEach(form => {
+            form.classList.remove('active');
+        });
 
-    // Form submission handlers
-    loginForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const email = loginForm.querySelector('input[type="email"]').value;
-        const senha = loginForm.querySelector('input[type="password"]').value;
-
-        try {
-            const response = await fetch('/login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ Email: email, Senha: senha })
-            });
-
-            if (response.ok) {
-                window.location.href = '/index.html';
-            } else {
-                const errorMessage = await response.text();
-                alert(errorMessage);
-            }
-        } catch (error) {
-            console.error('Erro:', error);
-            alert('Erro ao fazer login. Tente novamente.');
+        // Activate selected form and its toggle
+        if (targetForm === 'login') {
+            loginToggle.classList.add('active');
+            loginForm.classList.add('active');
+        } else if (targetForm === 'cadastro') {
+            cadastroToggle.classList.add('active');
+            cadastroForm.classList.add('active');
         }
+    }
+
+    // Add click event to login toggle
+    loginToggle.addEventListener('click', () => {
+        toggleForms('login');
     });
 
-    cadastroForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const nomeCompleto = cadastroForm.querySelector('input[placeholder="Nome Completo"]').value;
-        const email = cadastroForm.querySelector('input[placeholder="E-mail"]').value;
-        const senha = cadastroForm.querySelector('input[type="password"]:nth-child(3)').value;
-        const confirmarSenha = cadastroForm.querySelector('input[placeholder="Confirmar Senha"]').value;
-
-        // Client-side validation
-        if (senha !== confirmarSenha) {
-            alert('As senhas não coincidem.');
-            return;
-        }
-
-        try {
-            const response = await fetch('/register', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    NomeCompleto: nomeCompleto,
-                    Email: email,
-                    Senha: senha,
-                    ConfirmarSenha: confirmarSenha
-                })
-            });
-
-            if (response.ok) {
-                window.location.href = '/index.html';
-            } else {
-                const errorMessage = await response.text();
-                alert(errorMessage);
-            }
-        } catch (error) {
-            console.error('Erro:', error);
-            alert('Erro ao cadastrar. Tente novamente.');
-        }
+    // Add click event to cadastro toggle
+    cadastroToggle.addEventListener('click', () => {
+        toggleForms('cadastro');
     });
 
-    // Event listeners for form toggle
-    document.querySelector('[data-form="login"]').addEventListener('click', toggleToLogin);
-    document.querySelector('[data-form="cadastro"]').addEventListener('click', toggleToCadastro);
-});
+    // Enhanced form rendering and interactivity
+    function enhanceForm(formElement, formType) {
+        // Create form content dynamically
+        formElement.innerHTML = `
+            <form>
+                ${formType === 'login' ? `
+                    <input type="email" placeholder="E-mail" required>
+                    <input type="password" placeholder="Senha" required>
+                    <button type="submit">Entrar</button>
+                    <button type="button" class="toggle-cadastro">Não tem conta? Cadastre-se</button>
+                ` : `
+                    <input type="text" placeholder="Nome Completo" required>
+                    <input type="email" placeholder="E-mail" required>
+                    <input type="password" placeholder="Senha" required>
+                    <input type="password" placeholder="Confirmar Senha" required>
+                    <button type="submit">Cadastrar</button>
+                `}
 
-function toggleToLogin() {
-    const formToggles = document.querySelectorAll('.form-toggle span');
-    const forms = document.querySelectorAll('.form');
+                <div class="form-footer">
+                    ${formType === 'login' ? 
+                        '<a href="#">Esqueceu sua senha?</a>' : 
+                        'Ao cadastrar, você concorda com nossos <a href="#">Termos de Uso</a>'
+                    }
+                </div>
+            </form>
+        `;
 
-    formToggles.forEach(t => t.classList.remove('active'));
-    forms.forEach(f => f.classList.remove('active'));
-    
-    document.querySelector('.form-toggle span[data-form="login"]').classList.add('active');
-    document.getElementById('login-form').classList.add('active');
-}
+        // Add form submission handler
+        const form = formElement.querySelector('form');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Basic validation
+            const inputs = form.querySelectorAll('input');
+            const allFilled = Array.from(inputs).every(input => input.value.trim() !== '');
 
-function toggleToCadastro() {
-    const formToggles = document.querySelectorAll('.form-toggle span');
-    const forms = document.querySelectorAll('.form');
+            if (allFilled) {
+                if (formType === 'login') {
+                    const email = form.querySelector('input[type="email"]').value;
+                    const password = form.querySelector('input[type="password"]').value;
+                    console.log('Login attempt:', { email, password });
+                    alert('Login enviado com sucesso!');
+                } else {
+                    const fullName = form.querySelector('input[placeholder="Nome Completo"]').value;
+                    const email = form.querySelector('input[type="email"]').value;
+                    const password = form.querySelectorAll('input[type="password"]')[0].value;
+                    const confirmPassword = form.querySelectorAll('input[type="password"]')[1].value;
 
-    formToggles.forEach(t => t.classList.remove('active'));
-    forms.forEach(f => f.classList.remove('active'));
-    
-    document.querySelector('.form-toggle span[data-form="cadastro"]').classList.add('active');
-    document.getElementById('cadastro-form').classList.add('active');
-}
+                    if (password === confirmPassword) {
+                        console.log('Cadastro attempt:', { fullName, email, password });
+                        alert('Cadastro enviado com sucesso!');
+                    } else {
+                        alert('As senhas não coincidem.');
+                    }
+                }
+            } else {
+                alert('Por favor, preencha todos os campos.');
+            }
+        });
 
-// Basic form validation (you would replace this with more robust validation)
-const loginButton = document.querySelector('#login-form button:first-of-type');
-const cadastroButton = document.querySelector('#cadastro-form button');
-
-loginButton.addEventListener('click', (e) => {
-    e.preventDefault();
-    const email = document.querySelector('#login-form input[type="email"]');
-    const password = document.querySelector('#login-form input[type="password"]');
-
-    if (email.value && password.value) {
-        alert('Login enviado com sucesso!');
-        // Here you would typically send data to a backend
-    } else {
-        alert('Por favor, preencha todos os campos.');
+        // Add toggle to cadastro button in login form
+        if (formType === 'login') {
+            const toggleToCadastro = formElement.querySelector('.toggle-cadastro');
+            toggleToCadastro.addEventListener('click', () => {
+                toggleForms('cadastro');
+            });
+        }
     }
+
+    // Enhance both forms
+    enhanceForm(loginForm, 'login');
+    enhanceForm(cadastroForm, 'cadastro');
 });

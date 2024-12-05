@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Projust</title>
+    <title>Cadastro - Projust</title>
     <style>
         * {
             margin: 0;
@@ -68,17 +68,11 @@
             background-color: #6b5410;
         }
 
-        .form .toggle-cadastro {
-            display: block;
-            margin-top: 1rem;
-            color: #85690f;
-            text-decoration: none;
-            text-align: center;
-        }
-
         .form-footer {
             margin-top: 1rem;
             text-align: center;
+            font-size: 0.9rem;
+            color: #666;
         }
 
         .form-footer a {
@@ -91,20 +85,21 @@
     <div class="container">
         <img src="projust.png" alt="Projust Logo" class="logo" width="215" height="160">
         
-        <div id="login-form" class="form active">
+        <div id="cadastro-form" class="form active">
             <form>
+                <input type="text" placeholder="Nome Completo" required>
                 <input type="email" placeholder="E-mail" required>
                 <input type="password" placeholder="Senha" required>
-                <button type="submit">Entrar</button>
-                <a href="cadastro.html" class="toggle-cadastro">Não tem conta? Cadastre-se</a>
+                <input type="password" placeholder="Confirmar Senha" required>
+                <button type="submit">Cadastrar</button>
             </form>
             
             <div class="form-footer">
-                <a href="#">Esqueceu sua senha?</a>
+                Ao cadastrar, você concorda com nossos <a href="#">Termos de Uso</a>
             </div>
         </div>
     </div>
 
-    <script src="login.js"></script>
+    <script src="cadastro.js"></script>
 </body>
 </html>

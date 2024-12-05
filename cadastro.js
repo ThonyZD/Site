@@ -1,3 +1,9 @@
+firebase.auth().onAuthStateChanged(user => {
+    if (user) {
+        window.location.href = 'index.html';
+    }
+});
+
 document.addEventListener('DOMContentLoaded', () => {
     const cadastroForm = document.querySelector('#cadastro-form form');
 

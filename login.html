@@ -3,108 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Projust</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-
-        body {
-            background-color: #ffffff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 400px;
-            padding: 2rem;
-            text-align: center;
-        }
-
-        .logo {
-            margin-bottom: 2rem;
-            max-width: 215px;
-            height: auto;
-        }
-
-        .form {
-            background-color: #f9f9f9;
-            border-radius: 8px;
-            padding: 2rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        .form form {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .form input {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 16px;
-        }
-
-        .form button {
-            background-color: #85690f;
-            color: white;
-            border: none;
-            padding: 10px;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .form button:hover {
-            background-color: #6b5410;
-        }
-
-        .form .toggle-cadastro {
-            display: block;
-            margin-top: 1rem;
-            color: #85690f;
-            text-decoration: none;
-            text-align: center;
-        }
-
-        .form-footer {
-            margin-top: 1rem;
-            text-align: center;
-        }
-
-        .form-footer a {
-            color: #85690f;
-            text-decoration: none;
-        }
-    </style>
+    <title>Projust - Login</title>
+    <link rel="stylesheet" href="stylelogin.css">
+    <script src="login e cadastro.js" defer></script>
 </head>
 <body>
+    <header>
     <div class="container">
         <img src="projust.png" alt="Projust Logo" class="logo" width="215" height="160">
         
+        <div class="form-toggle">
+            <span onclick="toggleToLogin()" data-form="login">Login</span>
+            <span data-form="cadastro">Cadastro</span>
+        </div>
+
         <div id="login-form" class="form active">
-            <form>
-                <input type="email" placeholder="E-mail" required>
-                <input type="password" placeholder="Senha" required>
-                <button type="submit">Entrar</button>
-                <a href="cadastro.html" class="toggle-cadastro">Não tem conta? Cadastre-se</a>
-            </form>
-            
+            <input type="email" placeholder="E-mail" required>
+            <input type="password" placeholder="Senha" required>
+            <button>Entrar</button>
+            <button onclick="toggleToCadastro()">Não tem conta? Cadastre-se</button>
             <div class="form-footer">
                 <a href="#">Esqueceu sua senha?</a>
             </div>
         </div>
-    </div>
 
-    <script src="login.js"></script>
+        <div id="cadastro-form" class="form">
+            <input type="text" placeholder="Nome Completo" required>
+            <input type="email" placeholder="E-mail" required>
+            <input type="password" placeholder="Senha" required>
+            <input type="password" placeholder="Confirmar Senha" required>
+            <button>Cadastrar</button>
+            <div class="form-footer">
+                Ao cadastrar, você concorda com nossos <a href="#">Termos de Uso</a>
+            </div>
+        </div>
+    </div>
+    </header>
 </body>
 </html>

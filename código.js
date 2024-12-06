@@ -156,3 +156,85 @@ function setupForms() {
 // Setup da busca
 function setupSearch() {
     const searchForm = document.querySelector('.search') }
+
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const contactForm = document.getElementById('contact-form');
+    
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+    
+            // Coleta dos dados do formulário
+            const formData = new FormData(contactForm);
+            const data = Object.fromEntries(formData.entries());
+    
+            try {
+                // Simulação de envio de formulário (substituir por chamada real de API)
+                const response = await simulateFormSubmission(data);
+                
+                if (response.success) {
+                    mostrarMensagem('Mensagem enviada com sucesso!', 'success');
+                    contactForm.reset();
+                } else {
+                    mostrarMensagem('Erro ao enviar mensagem. Tente novamente.', 'error');
+                }
+            } catch (error) {
+                console.error('Erro:', error);
+                mostrarMensagem('Erro de conexão. Tente novamente mais tarde.', 'error');
+            }
+        });
+    
+        // Função simulada de envio de formulário
+        async function simulateFormSubmission(formData) {
+            // Simula um atraso de envio
+            await new Promise(resolve => setTimeout(resolve, 1500));
+            
+            // Lógica de validação (pode ser expandida)
+            if (!formData.nome || !formData.email || !formData.mensagem) {
+                return { success: false };
+            }
+    
+            // Simulação de envio bem-sucedido
+            return { success: true };
+        }
+    
+        // Função para exibir mensagens de feedback
+        function mostrarMensagem(texto, tipo) {
+            // Cria elemento de mensagem
+            const mensagemElement = document.createElement('div');
+            mensagemElement.textContent = texto;
+            mensagemElement.classList.add('mensagem', `mensagem-${tipo}`);
+    
+            // Adiciona ao corpo do documento
+            document.body.appendChild(mensagemElement);
+    
+            // Remove a mensagem após alguns segundos
+            setTimeout(() => {
+                document.body.removeChild(mensagemElement);
+            }, 3000);
+        }
+    
+        // Estilos adicionais para mensagens (podem ser movidos para o CSS)
+        const estiloMensagem = document.createElement('style');
+        estiloMensagem.textContent = `
+            .mensagem {
+                position: fixed;
+                top: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                padding: 15px;
+                border-radius: 5px;
+                z-index: 1000;
+                font-weight: bold;
+            }
+            .mensagem-success {
+                background-color: #4CAF50;
+                color: white;
+            }
+            .mensagem-error {
+                background-color: #f44336;
+                color: white;
+            }
+        `;
+        document.head.appendChild(estiloMensagem);
+    });

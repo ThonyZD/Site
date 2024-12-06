@@ -8,35 +8,44 @@
    </head>
 <body>
     <main>
-        <section class="hero2">
+        <section class="hero">
             <img
             src="projust.png"
             alt="projust"
             class="projust1">
 
             <div class="search-container">
-                <input type="text" placeholder="Pesquisar leis...">
+                <div class="search-wrapper">
+                <input type="text" class="search-input" placeholder="Pesquisar CPF ou CNPJ...">
+                <button class="search-button">
+                    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </button>
+            </div>
                 <div class="header-buttons">
                     <a href="login e cadastro.html">
                     <button>Entrar</button>
                     <button>Cadastrar</button>
-                </a>
+                    </a>
                 </div>
             </div>
 
 
             <nav>
                 <ul>
-                <li><a href="home">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                     <li><a href="sobre">Sobre</a></li>
                     <li><a href="serviços">Serviços</a></li>
                     <li><a href="contato">Contato</a></li>
                 </ul>
             </nav>
-    </div>
+    
     <div class="container">
         <h1>Processos</h1>
         <button class="add-button">Requisitar Processo</button>
+        <table class="processos-table">
         <table>
             <thead>
                 <tr>
@@ -51,28 +60,28 @@
                 <tr>
                     <td>1</td>
                     <td>Relatório Mensal</td>
-                    <td>Em Andamento</td>
-                    <td>Alta</td>
+                    <td class="status em-andamento">Em Andamento</td>
+                    <td class ="prioridade alta">Alta</td>
                     <td>
-                        <button>Pedir para editar</button>
-                        <button>Pedir para excluir</button>
+                        <button class="action-button edit">Pedir para editar</button>
+                        <button class="action-button delete">Pedir para excluir</button>
                     </td>
                 </tr>
                 <tr>
                     <td>2</td>
                     <td>Análise de Dados</td>
-                    <td>Concluído</td>
-                    <td>Média</td>
+                    <td class="status concluido">Concluído</td>
+                    <td class="prioridade media">Média</td>
                     <td>
-                        <button>Pedir para editar</button>
-                        <button>Pedir para excluir</button>
+                        <button class="action-button edit">Pedir para editar</button>
+                        <button class="action-button delete">Pedir para excluir</button>
                     </td>
                 </tr>
                 <tr>
                     <td>3</td>
                     <td>Projeto de Desenvolvimento</td>
-                    <td>Pendente</td>
-                    <td>Baixa</td>
+                    <td class="status pendente">Pendente</td>
+                    <td class="prioridade baixa">Baixa</td>
                     <td>
                         <button>Pedir para editar</button>
                         <button>Pedir para excluir</button>
@@ -82,7 +91,9 @@
         </table>
     </div>
     <footer>
-        <p>&copy; 2024 Projust. Todos os direitos reservados.</p>
+        <p>&copy; 2024 DataSafe. Todos os direitos reservados.</p>
     </footer>
+    </main>
+
 </body>
 </html>

@@ -7,57 +7,57 @@
     <link rel="stylesheet" href="style.css">
     <script src="código.js" defer></script>
 </head>
+<main>
+    <header>
+            <section class="hero">
+                <img
+                src="projust.png"
+                alt="projust"
+                class="projust1">
 
+                <div class="search-container">
+                    <div class="search-wrapper">
+                        <input type="text" class="search-input" placeholder="Pesquisar CPF ou CNPJ...">
+                        <button class="search-button">
+                            <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                            </svg>
+                        </button>
+                 </div>
+                    <div class="header-buttons">
+                        <a href="login.html">
+                            <button>Entrar</button>
+                            <button>Cadastrar</button>
+                        </a>
+                    </div>
+                </div>
+
+                <nav>
+                     <ul>
+                        <li><a href="index.html">Home</a></li>
+                         <li><a href="#Sobre">Sobre</a></li>
+                         <li><a href="#serviços">Serviços</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                    </ul>
+                </nav>
+            </section>
+        </header>
+</main>
 <body>
 
-<main>
-        <section class="hero">
-            <img
-            src="projust.png"
-            alt="projust"
-            class="projust1">
-
-            <div class="search-container">
-                <div class="search-wrapper">
-                    <input type="text" class="search-input" placeholder="Pesquisar CPF ou CNPJ...">
-                    <button class="search-button">
-                        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="11" cy="11" r="8"></circle>
-                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                        </svg>
-                    </button>
-                </div>
-                <div class="header-buttons">
-                    <a href="login.html">
-                        <button>Entrar</button>
-                        <button>Cadastrar</button>
-                    </a>
-                </div>
-            </div>
-
-            <nav>
-                <ul>
-                <li><a href="home">Home</a></li>
-                    <li><a href="sobre">Sobre</a></li>
-                    <li><a href="serviços">Serviços</a></li>
-                    <li><a href="contato">Contato</a></li>
-                </ul>
-            </nav>
-
-        </section>
-
-        <section class="services">
-            <h2>Nossos Serviços</h2>
+             <section class="services">
+                 <h2>Nossos Serviços</h2>
             <div class="service-cards">
                 <div class="card">
                     <a href="processos.html">
-                    <img
-                    src="Martelo.png"
-                    alt="martelo"
-                    width="95"
-                    height="90">
-                    <h3>Processos</h3>
-                    </a>
+                         <img
+                         src="Martelo.png"
+                        alt="martelo"
+                        width="95"
+                        height="90">
+                        <h3>Processos</h3>
+                     </a>
                     <a href="#">Saiba Mais</a>
                 </div>
 
@@ -85,12 +85,110 @@
                     </a>
                     <a href="#">Saiba Mais</a>
                 </div>
+            <div class="card">
+                <a href="artigos.html">
+                <img
+                src="artigos.png"
+                alt="artigos"
+                width="95"
+                height="90"
+                class="artigos">
+                <h3>Artigos Jurídicos</h3>
+                </a>
+                <a href="#">Saiba Mais</a>
             </div>
         </section>
     </main>
+    <!-- Seção Serviços Detalhados -->
+    <section id="servicos" class="services-details">
+        <div class="services-container">
+            <h2>Nossos Serviços Jurídicos</h2>
+            <div class="services-grid">
+                <div class="service-detail">
+                    <div class="service-icon">📋</div>
+                    <h3>Consultoria Jurídica</h3>
+                    <p>Orientação personalizada em diversas áreas do direito, com análise detalhada de sua situação.</p>
+                </div>
+                <div class="service-detail">
+                    <div class="service-icon">⚖️</div>
+                    <h3>Acompanhamento Processual</h3>
+                    <p>Acompanhamento completo de processos, com relatórios periódicos e transparência total.</p>
+                </div>
+                <div class="service-detail">
+                    <div class="service-icon">📝</div>
+                    <h3>Elaboração de Documentos</h3>
+                    <p>Preparação de contratos, petições e outros documentos jurídicos com precisão.</p>
+                </div>
+                <div class="service-detail">
+                    <div class="service-icon">🤝</div>
+                    <h3>Mediação e Conciliação</h3>
+                    <p>Resolução de conflitos de forma amigável e eficiente, evitando desgastes judiciais.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+         <!-- Seção Sobre -->
+         <section id="Sobre" class="about-section">
+            <div class="about-container">
+                <h2>Sobre Nós</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>A empresa DataSafe nasceu da necessidade de democratizar o acesso à informação jurídica. Nossa missão é simplificar processos legais e oferecer orientação clara e acessível para todos os cidadãos.</p>
+                        
+                        <p>Fundada por um grupo de Estudantes comprometidos com a justiça social, nossa plataforma utiliza tecnologia de ponta para conectar pessoas a serviços jurídicos de qualidade.</p>
+                        
+                        <h3>Nossos Valores</h3>
+                        <ul>
+                            <li>Transparência</li>
+                            <li>Ética</li>
+                            <li>Acessibilidade</li>
+                            <li>Inovação</li>
+                        </ul>
+                    </div>
+                    <div class="about-image">
+                        <img src="DataSafe.png" alt="Escritório DataSafe">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <!-- Seção Contato -->
+    <section id="contato" class="contact-section">
+        <div class="contact-container">
+            <h2>Envie seu Feedback</h2>
+            <div class="contact-content">
+                <form id="contact-form" class="contact-form">
+                    <input type="text" name="nome" placeholder="Seu Nome" required>
+                    <input type="email" name="email" placeholder="Seu E-mail" required>
+                    <input type="tel" name="telefone" placeholder="Telefone (opcional)">
+                    <select name="assunto" required>
+                        <option value="">Selecione o Assunto</option>
+                        <option value="consultoria">Consultoria Jurídica</option>
+                        <option value="processo">Acompanhamento de Processo</option>
+                        <option value="outros">Outros</option>
+                    </select>
+                    <textarea name="mensagem" placeholder="Sua Mensagem" required></textarea>
+                    <button type="submit">Enviar Mensagem</button>
+                </form>
+                <div class="contact-info">
+                    <h3>Informações de Contato</h3>
+                    <p>📍 Endereço: Rua Guilherme Pinto </p>
+                    <p>📞 Watsapp: (81) 98685-4336 </p>
+                    <p>✉️ E-mail: datasafep@gmail.com</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon">Instagram</a>
+                        <a href="#" class="social-icon">Discord</a>
+                        <a href="#" class="social-icon">Facebook</a>
+                        <a href="#" class="social-icon">Watsapp</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <footer>
-        <p>&copy; 2024 Projust. Todos os direitos reservados.</p>
+        <p>&copy; 2024 DataSafe. Todos os direitos reservados.</p>
     </footer>
 
 </body>
+</html>

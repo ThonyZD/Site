@@ -25,6 +25,9 @@ body {
 
 /* Estilos existentes permanecerão, apenas adicionando os novos */
 .search-container {
+    position: relative;
+    top: -110px;
+    left: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -99,8 +102,9 @@ header {
             background-color: #ffffff;
             color: #85690f;
             text-align: center;
-            padding: 20px 0;
-        }
+            padding: 10px 0;
+ }
+/* Estilos para o grid de advogados */
 .advogados-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -137,6 +141,7 @@ header {
             font-size: 0.9em;
             color: #85690f;
         }
+/* Estilos para o rodapé */
 footer {
             background-color: #ffffff;
             color: rgb(0, 0, 0);
@@ -144,3 +149,35 @@ footer {
             padding: 10px 0;
             margin-top: 30px;
         }
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style-type: none;
+        }
+        
+        nav a {
+            color: #85690f;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            transition: background-color 0.3s;
+        }
+        
+        nav a:hover {
+            background-color: #8b8383f8;
+        }
+        .container2 {
+            text-align: center;
+            color: #85690f;
+            font-family: Arial, sans-serif;
+            font-size: 24px;
+            font-weight: bold;
+            font-style: italic;
+  
+          }
+          .profissionais {
+            color: #666;
+            font-family: Arial, sans-serif;
+            font-size: 18px;
+            font-weight: normal;
+            font-style: normal;
+          }       

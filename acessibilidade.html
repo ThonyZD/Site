@@ -1,35 +1,4 @@
-<style>
-    /* [Estilos anteriores mantidos...] */
 
-    /* Estilo para indicar elementos interativos */
-    [data-speech] {
-        cursor: pointer;
-    }
-
-    [data-speech]:hover {
-        outline: 2px solid var(--primary-color);
-    }
-
-    /* Indicador visual de foco para acessibilidade */
-    .audio-focus {
-        position: relative;
-    }
-
-    .audio-focus::after {
-        content: '🔊';
-        position: absolute;
-        right: -20px;
-        top: 50%;
-        transform: translateY(-50%);
-        font-size: 14px;
-        opacity: 0;
-        transition: opacity 0.3s;
-    }
-
-    .audio-focus:hover::after {
-        opacity: 1;
-    }
-</style>
 </head>
 <body>
 <!-- [Estrutura HTML anterior mantida...] -->

@@ -52,8 +52,8 @@ header {
 }
 
 .search-input:focus {
-    border-color: #85690f;
-    box-shadow: 0 0 5px #85690f;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
 
 .search-button {
@@ -68,7 +68,7 @@ header {
 .search-icon {
     width: 20px;
     height: 20px;
-    color: #85690f;
+    color: #666;
     transition: color 0.3s ease;
 }
 
@@ -137,7 +137,7 @@ nav a:hover {
 .cta {
     position: relative;
     top: 20px;
-    background-color: #85690f;
+    background-color: #5c5454;
     color: #85690f;
     padding: 1rem 2rem;
     border: none;

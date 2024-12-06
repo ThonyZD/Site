@@ -65,8 +65,8 @@ body {
 }
 
 .search-input:focus {
-    border-color: #007bff;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+    border-color: #85690f;
+    box-shadow: 0 0 5px #85690f;
 }
 
 .search-button {
@@ -81,12 +81,12 @@ body {
 .search-icon {
     width: 20px;
     height: 20px;
-    color: #666;
+    color: #85690f;
     transition: color 0.3s ease;
 }
 
 .search-button:hover .search-icon {
-    color: #007bff;
+    color: #85690f;
 }
 
 /* Estilos para os botões do header */
@@ -99,14 +99,14 @@ body {
     padding: 10px 20px;
     border: none;
     border-radius: 25px;
-    background-color: #007bff;
+    background-color: #85690f;
     color: white;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 .header-buttons button:hover {
-    background-color: #0056b3;
+    background-color: #85690f;
 }
 
 nav ul {
